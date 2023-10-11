@@ -1,4 +1,4 @@
-TF_DIRS = $(patsubst %/main.tf, %, $(shell find . -type f -name 'main.tf'))
+TF_DIRS = $(patsubst %/main.tf, %, $(shell find . -type d -name .terraform -prune -o -name 'main.tf' -print))
 VALIDATE_TF_DIRS = $(addprefix validate-,$(TF_DIRS))
 
 # Format all terraform files
