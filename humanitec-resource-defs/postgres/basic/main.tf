@@ -57,6 +57,8 @@ statefulset.yaml:
                     secretKeyRef:
                       name: {{ .init.name }}
                       key: POSTGRES_PASSWORD
+                - name: POSTGRES_DB
+                  value: {{ .init.database | quote }}
                 - name: PGDATA
                   value: /var/lib/postgresql/data/pgdata
                 - name: PGPORT
