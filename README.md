@@ -10,9 +10,9 @@ A collection of in-cluster resources ready to be used with [Humanitec](https://h
 
 The following resources are included:
 
-* `mysql/basic`: A basic MySQL.
-* `postgres/basic`: A basic Postgres.
+* [mysql/basic](./humanitec-resource-defs/mysql/basic): A basic MySQL.
+* [postgres/basic](./humanitec-resource-defs/postgres/basic): A basic Postgres.
 
 The `humanitec-resource-defs` directory includes the respective resource definitions.
 
-Checkout `examples/main.tf` for an example using Postgres.
+Checkout `examples/postgres/main.tf` for an example using Postgres.

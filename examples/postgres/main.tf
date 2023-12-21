@@ -6,7 +6,7 @@ locals {
 }
 
 module "postgres_basic" {
-  source = "../humanitec-resource-defs/postgres/basic"
+  source = "../../humanitec-resource-defs/postgres/basic"
 
   prefix = local.res_def_prefix
 }
