@@ -1,11 +1,16 @@
 <!-- BEGIN_TF_DOCS -->
+## Requirements
 
+| Name | Version |
+|------|---------|
+| terraform | >= 1.3.0 |
+| humanitec | ~> 0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| humanitec | n/a |
+| humanitec | ~> 0 |
 
 ## Resources
 
@@ -17,7 +22,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| prefix | n/a | `string` | `""` | no |
+| prefix | Prefix for all resources | `string` | n/a | yes |
 
 ## Outputs
 
