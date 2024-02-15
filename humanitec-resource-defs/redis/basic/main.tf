@@ -16,7 +16,7 @@ port: {{ .cookie.port }}
 {{- else }}
 port: 6379
 {{- end }}
-name: redis-{{ .id }}
+name: redis-{{ "$${context.res.id}" | replace "." "-" }}
 EOL
         manifests = <<EOL
 deployment.yaml:
@@ -56,8 +56,7 @@ deployment.yaml:
             image: redis:7-alpine
             ports:
             - name: tcp-redis
-              port: {{ .init.port }}
-              targetPort: 6379
+              containerPort: 6379
             volumeMounts:
             - mountPath: /data
               name: redis-data
@@ -78,11 +77,13 @@ service.yaml:
       ports:
       - name: tcp-redis
         port: {{ .init.port }}
-        targetPort: {{ .init.port }}
+        targetPort: tcp-redis
 EOL
         outputs   = <<EOL
 host: {{ .init.name }}
 port: {{ .init.port }}
+username: ""
+password: ""
 EOL
       }
     })

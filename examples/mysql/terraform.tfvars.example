@@ -1,6 +1,6 @@
 
 # Name of the example application
-name = "hum-rp-postgres-example"
+name = "hum-rp-mysql-example"
 
 # Prefix of the created resources
-prefix = "hum-rp-postgres-ex-"
+prefix = "hum-rp-dns-ex-"

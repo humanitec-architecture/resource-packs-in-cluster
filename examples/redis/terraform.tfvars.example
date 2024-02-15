@@ -1,0 +1,6 @@
+
+# Name of the example application
+name = "hum-rp-redis-example"
+
+# Prefix of the created resources
+prefix = "hum-rp-redis-ex-"
