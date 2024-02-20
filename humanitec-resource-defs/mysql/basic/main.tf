@@ -28,7 +28,7 @@ password: {{ randAlphaNum 16 | quote }}
 rootPassword: {{ randAlphaNum 16 | quote }}
 database: {{ randAlpha 8 | lower | quote }}
 {{- end }}
-name: mysql-{{ "$${context.res.id}" | replace "." "-" }}
+name: ${var.name}
 EOL
         manifests = <<EOL
 statefulset.yaml:

@@ -43,5 +43,5 @@ resources:
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | name | Name of the example application | `string` | `"hum-rp-mysql-example"` | no |
-| prefix | Prefix of the created resources | `string` | `"hum-rp-dns-ex-"` | no |
+| prefix | Prefix of the created resources | `string` | `"hum-rp-mysql-ex-"` | no |
 <!-- END_TF_DOCS -->

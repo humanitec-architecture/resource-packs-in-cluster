@@ -7,5 +7,5 @@ variable "name" {
 variable "prefix" {
   description = "Prefix of the created resources"
   type        = string
-  default     = "hum-rp-dns-ex-"
+  default     = "hum-rp-mysql-ex-"
 }

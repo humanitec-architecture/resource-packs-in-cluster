@@ -15,4 +15,5 @@ resource "humanitec_resource_definition_criteria" "redis_basic" {
   resource_definition_id = module.redis_basic.id
   app_id                 = humanitec_application.example.id
   class                  = "default"
+  force_delete           = true
 }
