@@ -7,9 +7,9 @@ variable "name" {
   description = "Name of the statefulset"
   type        = string
 
-  # Pods names are limited to 63 characters (https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names)
-  # 63 - 6 (prefix) - 2 (suffix) = 55
+  # StatefulSets names are limited to 52 chars https://github.com/kubernetes/kubernetes/issues/64023
+  # 52 - 6 (prefix) = 46
   default = <<EOT
-mysql-{{ "$${context.res.id}" | replace "." "-" | substr 0 55 }}
+mysql-{{ "$${context.res.id}" | replace "." "-" | substr 0 46 }}
 EOT
 }

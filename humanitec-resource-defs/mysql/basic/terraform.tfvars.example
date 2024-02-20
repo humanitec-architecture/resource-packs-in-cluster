@@ -1,6 +1,6 @@
 
 # Name of the statefulset
-name = "mysql-{{ \"${context.res.id}\" | replace \".\" \"-\" | substr 0 55 }}\n"
+name = "mysql-{{ \"${context.res.id}\" | replace \".\" \"-\" | substr 0 46 }}\n"
 
 # Prefix for all resources
 prefix = ""
