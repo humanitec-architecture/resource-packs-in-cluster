@@ -23,6 +23,7 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | prefix | Prefix for all resources | `string` | n/a | yes |
+| name | Name of the statefulset | `string` | `"postgres-{{ \"${context.res.id}\" | replace \".\" \"-\" | substr 0 52 }}\n"` | no |
 
 ## Outputs
 

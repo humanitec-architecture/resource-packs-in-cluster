@@ -3,4 +3,4 @@
 name = "hum-rp-mysql-example"
 
 # Prefix of the created resources
-prefix = "hum-rp-dns-ex-"
+prefix = "hum-rp-mysql-ex-"

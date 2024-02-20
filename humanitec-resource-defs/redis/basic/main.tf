@@ -16,7 +16,7 @@ port: {{ .cookie.port }}
 {{- else }}
 port: 6379
 {{- end }}
-name: redis-{{ "$${context.res.id}" | replace "." "-" }}
+name: ${var.name}
 EOL
         manifests = <<EOL
 deployment.yaml:

@@ -25,7 +25,7 @@ user: {{ randAlpha 8 | lower | quote }}
 password: {{ randAlphaNum 16 | quote }}
 database: {{ randAlpha 8 | lower | quote }}
 {{- end }}
-name: postgres-{{ "$${context.res.id}" | replace "." "-" }}
+name: ${var.name}
 EOL
         manifests = <<EOL
 statefulset.yaml:

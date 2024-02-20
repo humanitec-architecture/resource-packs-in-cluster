@@ -1,3 +1,6 @@
 
+# Name of the statefulset
+name = "postgres-{{ \"${context.res.id}\" | replace \".\" \"-\" | substr 0 52 }}\n"
+
 # Prefix for all resources
 prefix = ""
