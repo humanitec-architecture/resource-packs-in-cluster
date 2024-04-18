@@ -82,6 +82,8 @@ EOL
         outputs   = <<EOL
 host: {{ .init.name }}
 port: {{ .init.port }}
+EOL
+        secrets   = <<EOL
 username: ""
 password: ""
 EOL
