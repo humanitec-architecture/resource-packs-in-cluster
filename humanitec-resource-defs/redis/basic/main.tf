@@ -37,6 +37,7 @@ deployment.yaml:
           labels:
             app: {{ .init.name }}
         spec:
+          automountServiceAccountToken: false
           securityContext:
             fsGroup: 1000
             runAsGroup: 1000
