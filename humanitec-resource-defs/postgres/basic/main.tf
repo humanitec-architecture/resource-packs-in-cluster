@@ -107,11 +107,7 @@ host: {{ .init.name }}
 port: {{ .init.port }}
 name: {{ .init.database }}
 EOL
-      }
-    })
-    secrets_string = jsonencode({
-      templates = {
-        outputs = <<EOL
+        secrets   = <<EOL
 username: {{ .init.user }}
 password: {{ .init.password }}
 EOL
