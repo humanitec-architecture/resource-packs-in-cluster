@@ -27,7 +27,6 @@ deployment.yaml:
     metadata:
       name: {{ .init.name }}
     spec:
-      serviceName: redis
       replicas: 1
       selector:
         matchLabels:
