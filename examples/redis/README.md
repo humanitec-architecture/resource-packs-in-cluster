@@ -1,6 +1,6 @@
 # Example: redis resource using a Kubernetes Deployment
 
-This example configures a [redis](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#redis) Resource Definition using Kubernetes Deployment.
+This example configures a [redis](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#redis) Resource Definition using Kubernetes `Deployment`.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -71,7 +71,7 @@ resources:
 
 This Score file when deployed to Humanitec will provision the `redis` database and inject the outputs in the associated environment variable.
 
-Here is how to deploy this Score file:
+Here is how to deploy this Score file, for example to the `hum-rp-redis-example` Application and `development` Environment:
 ```bash
 humctl score deploy \
     -f score.yaml \
