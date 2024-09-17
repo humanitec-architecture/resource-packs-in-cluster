@@ -1,0 +1,6 @@
+
+# Name of the deployment
+name = "mongo-{{ \"${context.res.id}\" | replace \".\" \"-\" | substr 0 41 }}\n"
+
+# Prefix for all resources
+prefix = ""
