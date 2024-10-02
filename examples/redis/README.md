@@ -69,10 +69,12 @@ resources:
 
 This Score file when deployed to Humanitec will provision the `redis` database and inject the outputs in the associated environment variable.
 
-Here is how to deploy this Score file, for example to the `hum-rp-redis-example` Application and `development` Environment:
+Here is how to deploy this Score file, for example to the `redis-example` Application and `development` Environment:
 ```bash
+humctl create app redis-example
+
 humctl score deploy \
     -f score.yaml \
-    --app hum-rp-redis-example \
+    --app redis-example \
     --env development
 ```

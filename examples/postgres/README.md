@@ -68,10 +68,12 @@ resources:
 
 This Score file when deployed to Humanitec will provision the `postgres` database and inject the outputs in the associated environment variable.
 
-Here is how to deploy this Score file, for example to the `hum-rp-postgres-example` Application and `development` Environment:
+Here is how to deploy this Score file, for example to the `postgres-example` Application and `development` Environment:
 ```bash
+humctl create app postgres-example
+
 humctl score deploy \
     -f score.yaml \
-    --app hum-rp-postgres-example \
+    --app postgres-example \
     --env development
 ```

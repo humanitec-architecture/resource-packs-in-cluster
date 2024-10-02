@@ -68,10 +68,12 @@ resources:
 
 This Score file when deployed to Humanitec will provision the `mongodb` database and inject the outputs in the associated environment variable.
 
-Here is how to deploy this Score file, for example to the `hum-rp-mongodb-example` Application and `development` Environment:
+Here is how to deploy this Score file, for example to the `mongodb-example` Application and `development` Environment:
 ```bash
+humctl create app mongodb-example
+
 humctl score deploy \
     -f score.yaml \
-    --app hum-rp-mongodb-example \
+    --app mongodb-example \
     --env development
 ```

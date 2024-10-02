@@ -68,10 +68,12 @@ resources:
 
 This Score file when deployed to Humanitec will provision the `mysql` database and inject the outputs in the associated environment variable.
 
-Here is how to deploy this Score file, for example to the `hum-rp-mysql-example` Application and `development` Environment:
+Here is how to deploy this Score file, for example to the `mysql-example` Application and `development` Environment:
 ```bash
+humctl create app mysql-example
+
 humctl score deploy \
     -f score.yaml \
-    --app hum-rp-mysql-example \
+    --app mysql-example \
     --env development
 ```
