@@ -1,0 +1,23 @@
+{
+	"name": "Score & Humanitec Dev Container",
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	"features": {
+        "ghcr.io/devcontainers/features/terraform:1": {
+            "installTerraformDocs": true
+        }
+    },
+	"postCreateCommand": "bash .devcontainer/installMoreTools.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"redhat.vscode-yaml",
+				"humanitec.humanitec"
+			],
+			"settings": {
+				"yaml.schemas": {
+					"https://raw.githubusercontent.com/score-spec/spec/main/score-v1b1.json": "score.yaml"
+				}
+			}
+		}
+	}
+}
