@@ -32,6 +32,7 @@ This example configures a [redis](https://developer.humanitec.com/platform-orche
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| name | Name of the example application | `string` | `"hum-rp-redis-example"` | no |
 | prefix | Prefix of the created resources | `string` | `"hum-rp-redis-ex-"` | no |
 <!-- END_TF_DOCS -->
 
