@@ -26,14 +26,12 @@ This example configures a [mysql](https://developer.humanitec.com/platform-orche
 
 | Name | Type |
 |------|------|
-| [humanitec_application.example](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/application) | resource |
 | [humanitec_resource_definition_criteria.mysql_basic](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| name | Name of the example application | `string` | `"hum-rp-mysql-example"` | no |
 | prefix | Prefix of the created resources | `string` | `"hum-rp-mysql-ex-"` | no |
 <!-- END_TF_DOCS -->
 
