@@ -1,6 +1,3 @@
 
-# Name of the example application
-name = "hum-rp-mysql-example"
-
 # Prefix of the created resources
 prefix = "hum-rp-mysql-ex-"
