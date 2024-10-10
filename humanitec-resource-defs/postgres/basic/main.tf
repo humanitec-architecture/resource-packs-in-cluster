@@ -46,9 +46,10 @@ statefulset.yaml:
           labels:
             app: {{ .init.name }}
         spec:
+          automountServiceAccountToken: false
           containers:
             - name: {{ .init.name }}
-              image: postgres:15
+              image: postgres:17-alpine
               env:
                 - name: POSTGRES_USER
                   value: {{ .init.user | quote }}
@@ -69,6 +70,19 @@ statefulset.yaml:
               volumeMounts:
                 - name: {{ .init.name }}
                   mountPath: /var/lib/postgresql/data
+              securityContext:
+                runAsUser: 1000
+                runAsGroup: 1000
+                allowPrivilegeEscalation: false
+                privileged: false
+                capabilities:
+                  drop:
+                    - ALL
+          securityContext:
+            runAsNonRoot: true
+            fsGroup: 1000
+            seccompProfile:
+              type: RuntimeDefault
       volumeClaimTemplates:
         - metadata:
             name: {{ .init.name }}
@@ -77,7 +91,7 @@ statefulset.yaml:
               - ReadWriteOnce
             resources:
               requests:
-                storage: 10Gi
+                storage: 1Gi
 service.yaml:
   location: namespace
   data:
