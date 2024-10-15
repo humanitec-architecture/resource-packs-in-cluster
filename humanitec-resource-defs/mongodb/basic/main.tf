@@ -44,9 +44,10 @@ deployment.yaml:
           labels:
             app: {{ .init.id }}
         spec:
+          automountServiceAccountToken: false
           containers:
           - name: mongodb
-            image: mongo:7
+            image: mongo:8
             ports:
             - containerPort: {{ .init.port }}
             env:
@@ -57,13 +58,31 @@ deployment.yaml:
                 secretKeyRef:
                   name: {{ .init.id }}
                   key: MONGO_INITDB_ROOT_PASSWORD
+            securityContext:
+                runAsUser: 1001
+                runAsGroup: 1001
+                allowPrivilegeEscalation: false
+                privileged: false
+                readOnlyRootFilesystem: true
+                capabilities:
+                  drop:
+                    - ALL
             volumeMounts:
-            - name: data
-              mountPath: /data/db
+              - name: data
+                mountPath: /data/db
+              - name: tmp
+                mountPath: /tmp
+          securityContext:
+            runAsNonRoot: true
+            fsGroup: 1001
+            seccompProfile:
+              type: RuntimeDefault
           volumes:
           - name: data
             persistentVolumeClaim:
               claimName: pvc-{{ .init.id }}
+          - name: tmp
+                emptyDir: {}
 pvc.yaml:
   location: namespace
   data:
@@ -76,7 +95,7 @@ pvc.yaml:
       - ReadWriteOnce
       resources:
         requests:
-          storage: 10G
+          storage: 1G
 service.yaml:
   location: namespace
   data:
