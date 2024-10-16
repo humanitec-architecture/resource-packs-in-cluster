@@ -1,0 +1,6 @@
+
+# Name of the statefulset
+name = "rabbitmq-{{ \"${context.res.id}\" | replace \".\" \"-\" | substr 0 43 }}\n"
+
+# Prefix for all resources
+prefix = ""
