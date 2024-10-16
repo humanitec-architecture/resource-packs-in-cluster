@@ -1,4 +1,4 @@
-# Example: postgres resource using a Kubernetes StatefulSet
+# Example: rabbitmq resource using a Kubernetes StatefulSet
 
 This example configures a [RabbitMQ - type AMQP](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#amqp) Resource Definition using Kubernetes `StatefulSet`.
 
@@ -58,7 +58,7 @@ metadata:
   name: my-workload
 containers:
   my-container:
-    image: nginx:latest # this container image is just used as an example, it's not talking to postgres.
+    image: nginx:latest # this container image is just used as an example, it's not talking to rabbitmq.
     variables:
       RABBIT_USER: ${resources.my-rabbit.username}
       RABBIT_PASSWORD: ${resources.my-rabbit.password}
