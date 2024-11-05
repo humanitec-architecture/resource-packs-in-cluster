@@ -6,19 +6,26 @@
 
 ---
 
+## Overview
+
 A collection of in-cluster resources ready to be used with [Humanitec](https://humanitec.com/).
+
+The Resource Pack uses [Terraform](https://terraform.io) and the [Humanitec Terraform Provider](https://registry.terraform.io/providers/humanitec/humanitec) to create Resource Definitions in your Humanitec Organization.
+
+## Usage
+
+You may either install a Resource Definition from the Pack as-is or adopt the Terraform source code into your own Terraform estate.
 
 The following resources are included:
 
-* [mysql/basic](./humanitec-resource-defs/mysql/basic): A basic MySQL.
-* [postgres/basic](./humanitec-resource-defs/postgres/basic): A basic Postgres.
-* [redis/basic](./humanitec-resource-defs/redis/basic): A basic Redis.
-* [mongodb/basic](./humanitec-resource-defs/mongodb/basic): A basic MongoDB.
+- `mongodb/basic`: a basic MongoDB ([Installation instructions](./examples/mongodb/README.md#deploy-and-use-this-example) / [Terraform source](./humanitec-resource-defs/mongodb/basic))
+- `mysql/basic`: a basic MySQL ([Installation instructions](./examples/mysql/README.md#deploy-and-use-this-example) / [Terraform source](./humanitec-resource-defs/mysql/basic))
+- `postgres/basic`: a basic Postgres ([Installation instructions](./examples/postgres/README.md#deploy-and-use-this-example) / [Terraform source](./humanitec-resource-defs/postgres/basic))
+- `rabbitmq/basic`: a basic RabbitMQ ([Installation instructions](./examples/rabbitmq/README.md#deploy-and-use-this-example) / [Terraform source](./humanitec-resource-defs/rabbitmq/basic))
+- `redis/basic`: a basic Redis ([Installation instructions](./examples/redis/README.md#deploy-and-use-this-example) / [Terraform source](./humanitec-resource-defs/redis/basic))
 
-The `humanitec-resource-defs` directory includes the respective resource definitions.
+## Repository structure
 
-Checkout the following examples to use them in Humanitec:
-- `postgres`: [`examples/postgres/main.tf`](examples/postgres/main.tf)
-- `mysql`: [`examples/mysql/main.tf`](examples/mysql/main.tf)
-- `redis`: [`examples/redis/main.tf`](examples/redis/main.tf)
-- `mongodb`: [`examples/mongodb/main.tf`](examples/mongodb/main.tf)
+The `examples` directory includes the respective installation instructions.
+
+The `humanitec-resource-defs` directory includes the Terraform sources for the respective Resource Definitions.
