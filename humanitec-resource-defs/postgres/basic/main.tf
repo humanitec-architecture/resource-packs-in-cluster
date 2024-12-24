@@ -92,6 +92,7 @@ statefulset.yaml:
             resources:
               requests:
                 storage: 1Gi
+            storageClassName: gp2
 service.yaml:
   location: namespace
   data:
