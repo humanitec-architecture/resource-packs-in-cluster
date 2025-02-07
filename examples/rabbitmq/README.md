@@ -62,6 +62,8 @@ containers:
     variables:
       RABBIT_USER: ${resources.my-rabbit.username}
       RABBIT_PASSWORD: ${resources.my-rabbit.password}
+      RABBIT_PORT: ${resources.my-rabbit.port}
+      RABBIT_HOST: ${resources.my-rabbit.host}
       RABBIT_VHOST: ${resources.my-rabbit.vhost}
 resources:
   my-rabbit:
