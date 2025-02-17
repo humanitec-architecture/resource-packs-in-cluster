@@ -1,0 +1,5 @@
+cookie: null
+placeholders:
+  context.res.id: "modules.test-workload.externals.test-rabbitmq"
+resource: {}
+secretRefs: {}

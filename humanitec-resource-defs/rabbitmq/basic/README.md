@@ -23,7 +23,6 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | prefix | Prefix for all resources | `string` | n/a | yes |
-| name | Name of the statefulset | `string` | `"rabbitmq-{{ \"${context.res.id}\" | replace \".\" \"-\" | substr 0 43 }}\n"` | no |
 
 ## Outputs
 
