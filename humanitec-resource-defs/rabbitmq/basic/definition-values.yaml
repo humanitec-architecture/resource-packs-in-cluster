@@ -21,7 +21,7 @@ templates:
     password: {{ randAlphaNum 16 | quote }}
     vhost: {{ randAlpha 8 | lower | quote }}
     erlangcookie: {{ randAlpha 20 }}
-    # Deployment names shouldn't be > 47 https://pauldally.medium.com/why-you-try-to-keep-your-deployment-names-to-47-characters-or-less-1f93a848d34c
+    # StatefulSets names are limited to 52 chars https://github.com/kubernetes/kubernetes/issues/64023
     {{ if regexMatch "modules\\.[a-z0-9-]+\\.externals" .driver.values.resId }}
     name: rabbit-{{ index (splitList "." .driver.values.resId) 1 | substr 0 20 }}-{{ index (splitList "." .driver.values.resId) 3 | substr 0 20 }}
     {{- else }}

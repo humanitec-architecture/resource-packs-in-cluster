@@ -18,7 +18,7 @@ templates:
     user: {{ randAlpha 8 | lower | quote }}
     password: {{ randAlphaNum 16 | quote }}
     database: {{ randAlpha 8 | lower | quote }}
-    # Deployment names shouldn't be > 47 https://pauldally.medium.com/why-you-try-to-keep-your-deployment-names-to-47-characters-or-less-1f93a848d34c
+    # StatefulSets names are limited to 52 chars https://github.com/kubernetes/kubernetes/issues/64023
     {{ if regexMatch "modules\\.[a-z0-9-]+\\.externals" .driver.values.resId }}
     name: postgres-{{ index (splitList "." .driver.values.resId) 1 | substr 0 19 }}-{{ index (splitList "." .driver.values.resId) 3 | substr 0 19 }}
     {{- else }}
@@ -68,8 +68,8 @@ templates:
                     - name: {{ .init.name }}
                       mountPath: /var/lib/postgresql/data
                   securityContext:
-                    runAsUser: 1000
-                    runAsGroup: 1000
+                    runAsUser: 65532
+                    runAsGroup: 65532
                     allowPrivilegeEscalation: false
                     privileged: false
                     capabilities:
@@ -77,7 +77,7 @@ templates:
                         - ALL
               securityContext:
                 runAsNonRoot: true
-                fsGroup: 1000
+                fsGroup: 65532
                 seccompProfile:
                   type: RuntimeDefault
           volumeClaimTemplates:
