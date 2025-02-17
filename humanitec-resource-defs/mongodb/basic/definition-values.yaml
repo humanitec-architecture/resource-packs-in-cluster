@@ -1,5 +1,3 @@
-# To double check:
-# name: db_{{ randAlpha 10}} 
 resId: ${context.res.id}
 templates:
   cookie: |
