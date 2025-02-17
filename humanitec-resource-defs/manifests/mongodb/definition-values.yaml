@@ -1,0 +1,125 @@
+# To double check:
+# name: db_{{ randAlpha 10}} 
+resId: ${context.res.id}
+templates:
+  cookie: |
+    rootUsername: {{ .init.rootUsername }}
+    name: {{ .init.name }}
+    rootPassword: {{ .init.rootPassword }}
+    port: {{ .init.port }}
+  init: |-
+    {{- if .cookie}}
+    rootUsername: {{ .cookie.rootUsername }}
+    name: {{ .cookie.name }}
+    rootPassword: {{ .cookie.rootPassword }}
+    port: {{ .cookie.port }}
+    {{- else }}
+    port: 27017
+    rootUsername: {{ randAlpha 8 | lower | quote }}
+    rootPassword: {{ randAlphaNum 16 | quote }}
+    # Deployment names shouldn't be > 47 https://pauldally.medium.com/why-you-try-to-keep-your-deployment-names-to-47-characters-or-less-1f93a848d34c
+    {{ if regexMatch "modules\\.[a-z0-9-]+\\.externals" .driver.values.resId }}
+    name: mongo-{{ index (splitList "." .driver.values.resId) 1 | substr 0 20 }}-{{ index (splitList "." .driver.values.resId) 3 | substr 0 20 }}
+    {{- else }}
+    name: mongo-{{ index (splitList "." .driver.values.resId) 1 | substr 0 40 }}
+    {{- end }}
+    {{- end }}
+  manifests: |-
+    deployment.yaml:
+      location: namespace
+      data:
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: {{ .init.name }}
+        spec:
+          selector:
+            matchLabels:
+              app: {{ .init.name }}
+          template:
+            metadata:
+              labels:
+                app: {{ .init.name }}
+            spec:
+              automountServiceAccountToken: false
+              containers:
+              - name: mongodb
+                image: mongo:8
+                ports:
+                - containerPort: {{ .init.port }}
+                env:
+                  - name: MONGO_INITDB_ROOT_USERNAME
+                    value: {{ .init.rootUsername }}
+                  - name: MONGO_INITDB_ROOT_PASSWORD
+                    valueFrom:
+                      secretKeyRef:
+                        name: {{ .init.name }}
+                        key: MONGO_INITDB_ROOT_PASSWORD
+                securityContext:
+                  runAsUser: 65532
+                  runAsGroup: 65532
+                  allowPrivilegeEscalation: false
+                  privileged: false
+                  readOnlyRootFilesystem: true
+                  capabilities:
+                    drop:
+                      - ALL
+                volumeMounts:
+                  - name: data
+                    mountPath: /data/db
+                  - name: tmp
+                    mountPath: /tmp
+              securityContext:
+                runAsNonRoot: true
+                fsGroup: 65532
+                seccompProfile:
+                  type: RuntimeDefault
+              volumes:
+              - name: data
+                persistentVolumeClaim:
+                  claimName: pvc-{{ .init.name }}
+              - name: tmp
+                emptyDir: {}
+    pvc.yaml:
+      location: namespace
+      data:
+        apiVersion: v1
+        kind: PersistentVolumeClaim
+        metadata:
+          name: pvc-{{ .init.name }}
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1G
+    service.yaml:
+      location: namespace
+      data:
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: {{ .init.name }}
+        spec:
+          type: ClusterIP
+          selector:
+            app: {{ .init.name }}
+          ports:
+          - name: tcp-mongodb
+            port: {{ .init.port }}
+            targetPort: {{ .init.port }}
+    secret.yaml:
+      location: namespace
+      data:
+        apiVersion: v1
+        kind: Secret
+        metadata:
+          name: {{ .init.name }}
+        type: Opaque
+        data:
+          MONGO_INITDB_ROOT_PASSWORD: {{ .init.rootPassword | b64enc }}
+  outputs: |-
+    host: {{ .init.name }}
+    port: {{ .init.port }}
+  secrets: |-
+    connection: mongodb://{{ .init.rootUsername }}:{{ .init.rootPassword }}@{{ .init.name }}:{{ .init.port }}/
