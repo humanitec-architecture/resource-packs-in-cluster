@@ -4,7 +4,7 @@ set -o errexit
 templates=$(ls humanitec-resource-defs/)
 for template in $templates;
 do
-  if [ "${template}" != "mysql" ] && [ "${template}" != "postgres" ]; then
+  if [ "${template}" != "mysql" ]; then
     echo "## Testing ${template}:"
     cp scripts/test.yaml humanitec-resource-defs/$template/basic/test-$template.yaml
     cd humanitec-resource-defs/$template/basic
