@@ -32,7 +32,7 @@ This example configures a [RabbitMQ - type AMQP](https://developer.humanitec.com
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| prefix | Prefix of the created resources | `string` | `"hum-rp-rabbitmq-ex-"` | no |
+| prefix | Prefix for the resource definition in Humanitec | `string` | `"hum-rp-rabbitmq-ex-"` | no |
 <!-- END_TF_DOCS -->
 
 ## Deploy and use this example

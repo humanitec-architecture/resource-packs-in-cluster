@@ -32,7 +32,7 @@ This example configures a [mysql](https://developer.humanitec.com/platform-orche
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| prefix | Prefix of the created resources | `string` | `"hum-rp-mysql-ex-"` | no |
+| prefix | Prefix for the resource definition in Humanitec | `string` | `"hum-rp-mysql-ex-"` | no |
 <!-- END_TF_DOCS -->
 
 ## Deploy and use this example
