@@ -5,19 +5,6 @@ resource "humanitec_resource_definition" "main" {
   driver_type = "humanitec/template"
 
   driver_inputs = {
-    values_string = jsonencode({
-      templates = {
-        cookie    = <<EOL
-EOL
-        init      = <<EOL
-EOL
-        manifests = <<EOL
-EOL
-        outputs   = <<EOL
-EOL
-        secrets   = <<EOL
-EOL
-      }
-    })
+    values_string = jsonencode(yamldecode(file("${path.module}/definition-values.yaml")))
   }
 }
