@@ -1,5 +1,5 @@
 cookie: null
 placeholders:
-  context.res.id: "modules.shared-redis"
+  context.res.id: "modules.shared-mongodb"
 resource: {}
 secretRefs: {}
