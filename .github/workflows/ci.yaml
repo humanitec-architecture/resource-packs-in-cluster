@@ -44,3 +44,12 @@ jobs:
 
       - name: Lint
         run: make lint
+
+      - name: install humctl
+        uses: humanitec/setup-cli-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: "*"
+      
+      - name: Humanitec Resource Definitions Validate
+        run: make test-definitions

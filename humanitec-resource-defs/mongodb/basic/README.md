@@ -22,7 +22,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| prefix | Prefix for all resources | `string` | n/a | yes |
+| prefix | Prefix for the resource definition in Humanitec | `string` | n/a | yes |
 
 ## Outputs
 

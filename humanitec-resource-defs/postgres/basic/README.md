@@ -22,8 +22,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| prefix | Prefix for all resources | `string` | n/a | yes |
-| name | Name of the statefulset | `string` | `"postgres-{{ \"${context.res.id}\" | replace \".\" \"-\" | substr 0 43 }}\n"` | no |
+| prefix | Prefix for the resource definition in Humanitec | `string` | n/a | yes |
 
 ## Outputs
 

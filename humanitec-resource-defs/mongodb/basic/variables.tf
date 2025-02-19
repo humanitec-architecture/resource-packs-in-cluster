@@ -1,4 +1,4 @@
 variable "prefix" {
-  description = "Prefix for all resources"
+  description = "Prefix for the resource definition in Humanitec"
   type        = string
 }

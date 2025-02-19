@@ -1,5 +1,5 @@
 variable "prefix" {
-  description = "Prefix of the created resources"
+  description = "Prefix for the resource definition in Humanitec"
   type        = string
   default     = "hum-rp-postgres-ex-"
 }

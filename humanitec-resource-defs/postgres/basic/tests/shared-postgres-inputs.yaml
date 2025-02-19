@@ -1,0 +1,5 @@
+cookie: null
+placeholders:
+  context.res.id: "modules.shared-postgres"
+resource: {}
+secretRefs: {}

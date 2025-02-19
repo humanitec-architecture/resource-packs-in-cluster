@@ -44,3 +44,7 @@ lint-init:
 # Lint all terraform directories
 lint: lint-init $(LINT_TF_DIRS)
 	@echo "All linted"
+
+# Test template res defs
+test-definitions:
+	./scripts/test-definitions.sh

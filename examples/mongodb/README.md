@@ -32,7 +32,7 @@ This example configures a [mongodb](https://developer.humanitec.com/platform-orc
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| prefix | Prefix of the created resources | `string` | `"hum-rp-mongodb-ex-"` | no |
+| prefix | Prefix for the resource definition in Humanitec | `string` | `"hum-rp-mongodb-ex-"` | no |
 <!-- END_TF_DOCS -->
 
 ## Deploy and use this example

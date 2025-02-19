@@ -1,0 +1,5 @@
+cookie: null
+placeholders:
+  context.res.id: "modules.test-very-long-workload-name.externals.test-very-long-mysql-name"
+resource: {}
+secretRefs: {}

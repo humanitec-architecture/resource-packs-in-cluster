@@ -22,8 +22,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| prefix | Prefix for all resources | `string` | n/a | yes |
-| name | Name of the deployment | `string` | `"redis-{{ \"${context.res.id}\" | replace \".\" \"-\" | substr 0 41 }}\n"` | no |
+| prefix | Prefix for the resource definition in Humanitec | `string` | n/a | yes |
 
 ## Outputs
 
